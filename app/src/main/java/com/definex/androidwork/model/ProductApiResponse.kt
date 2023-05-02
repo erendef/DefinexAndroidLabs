@@ -10,5 +10,20 @@ data class ProductApiResponse(
 
 data class Product(
     @SerializedName("title")
-    var title: String
+    var title: String,
+
+    @SerializedName("description")
+    val description: String,
+
+    @SerializedName("price")
+    val price: Int,
+
+    @SerializedName("discountPercentage")
+    val discountPercentage: Float,
+
+    @SerializedName("brand")
+    val brand: String,
+
+    @SerializedName("images")
+    val images: List<String>
 )

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="product"
+            type="com.definex.androidwork.model.Product" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:id="@+id/image_view"
+            imageUrl="@{product.images[0]}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{product.title}"
+            app:layout_constraintStart_toEndOf="@id/image_view"
+            app:layout_constraintBottom_toTopOf="@id/text_view_description"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="16sp"
+            tools:text="iPhone"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_view_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{product.description}"
+            app:layout_constraintBottom_toBottomOf="@id/text_view_rating"
+            app:layout_constraintStart_toStartOf="@id/text_view_name"
+            app:layout_constraintTop_toBottomOf="@id/text_view_name"
+            tools:text="Apple"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_view_rating"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@{`Rating: ` + product.discountPercentage}"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/text_view_description"
+            app:layout_constraintTop_toBottomOf="@id/text_view_description"
+            tools:text="Rating 9.2"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
